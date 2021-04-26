@@ -9,11 +9,12 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UIGestureRecognizerDelegate, UITextFieldDelegate {
     
     internal let loginContentViewObject = LoginContentView()
-    let viewModel = LoginViewModel()  // 1
-    let disposeBag = DisposeBag()  // 2
+    let viewModel = LoginViewModel()
+    let disposeBag = DisposeBag()
+    let onboardVC = OnboardingFormViewController()
     
     private let loginContentView: UIView = {
       let view = UIView()
@@ -31,6 +32,7 @@ class LoginViewController: UIViewController {
         view.backgroundColor = #colorLiteral(red: 0.7768785357, green: 0.7994685173, blue: 1, alpha: 1)
         setupAutoLayout()
         validationsWithRXSwift()
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
     }
     
     func validationsWithRXSwift() {
@@ -46,16 +48,29 @@ class LoginViewController: UIViewController {
   
     @objc func loginButtonTapped() {
         let alert = UIAlertController(title: "Login Successful", message: "", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let okAction = UIAlertAction(title: "OK", style: .default) {
+            (UIAlertAction) in
+            self.navigationController?.pushViewController(self.onboardVC, animated: true)
+        }
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        super.viewWillAppear(animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        super.viewWillDisappear(animated)
     }
     
     func setupAutoLayout() {
         // Login Content View Constraints
         loginContentView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         loginContentView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        loginContentView.heightAnchor.constraint(equalToConstant: view.frame.height/3).isActive = true
+        loginContentView.heightAnchor.constraint(equalToConstant: view.frame.height/2).isActive = true
         loginContentView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
         // Name TextField Constraints
