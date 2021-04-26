@@ -12,7 +12,7 @@ internal final class LoginContentView: UIView {
     let nameTextField: UITextField = {
         let txtField = UITextField()
         txtField.backgroundColor = .white
-        txtField.placeholder = "Username"
+        txtField.placeholder = "Email"
         txtField.borderStyle = .roundedRect
         txtField.translatesAutoresizingMaskIntoConstraints = false
         return txtField

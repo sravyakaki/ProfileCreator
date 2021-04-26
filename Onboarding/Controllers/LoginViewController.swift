@@ -7,10 +7,13 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 class LoginViewController: UIViewController {
     
     internal let loginContentViewObject = LoginContentView()
+    let viewModel = LoginViewModel()  // 1
+    let disposeBag = DisposeBag()  // 2
     
     private let loginContentView: UIView = {
       let view = UIView()
@@ -27,9 +30,27 @@ class LoginViewController: UIViewController {
         view.addSubview(loginContentView)
         view.backgroundColor = #colorLiteral(red: 0.7768785357, green: 0.7994685173, blue: 1, alpha: 1)
         setupAutoLayout()
+        validationsWithRXSwift()
     }
     
+    func validationsWithRXSwift() {
+        loginContentViewObject.nameTextField.rx.text.orEmpty.bind(to: viewModel.email)
+        .disposed(by: disposeBag)
+        loginContentViewObject.passwordTextField.rx.text.orEmpty.bind(to: viewModel.password)
+        .disposed(by: disposeBag)
+        viewModel.isValid.map { $0 }
+        .bind(to: loginContentViewObject.loginBtn.rx.isEnabled)
+        .disposed(by: disposeBag)
+        loginContentViewObject.loginBtn.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+    }
   
+    @objc func loginButtonTapped() {
+        let alert = UIAlertController(title: "Login Successful", message: "", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func setupAutoLayout() {
         // Login Content View Constraints
         loginContentView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
