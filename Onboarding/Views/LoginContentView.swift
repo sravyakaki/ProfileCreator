@@ -21,6 +21,7 @@ internal final class LoginContentView: UIView {
     let passwordTextField: UITextField = {
         let txtField = UITextField()
         txtField.placeholder = "Password"
+        txtField.isSecureTextEntry = true
         txtField.borderStyle = .roundedRect
         txtField.translatesAutoresizingMaskIntoConstraints = false
         return txtField

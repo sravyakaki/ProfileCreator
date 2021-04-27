@@ -17,10 +17,10 @@ class LoginViewController: UIViewController, UIGestureRecognizerDelegate, UIText
     let onboardVC = OnboardingFormViewController()
     
     private let loginContentView: UIView = {
-      let view = UIView()
-      view.backgroundColor = #colorLiteral(red: 0.7768785357, green: 0.7994685173, blue: 1, alpha: 1)
-      view.translatesAutoresizingMaskIntoConstraints = false
-      return view
+        let view = UIView()
+        view.backgroundColor = #colorLiteral(red: 0.7768785357, green: 0.7994685173, blue: 1, alpha: 1)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     override func viewDidLoad() {
@@ -37,30 +37,24 @@ class LoginViewController: UIViewController, UIGestureRecognizerDelegate, UIText
     
     func validationsWithRXSwift() {
         loginContentViewObject.nameTextField.rx.text.orEmpty.bind(to: viewModel.email)
-        .disposed(by: disposeBag)
+            .disposed(by: disposeBag)
         loginContentViewObject.passwordTextField.rx.text.orEmpty.bind(to: viewModel.password)
-        .disposed(by: disposeBag)
+            .disposed(by: disposeBag)
         viewModel.isValid.map { $0 }
-        .bind(to: loginContentViewObject.loginBtn.rx.isEnabled)
-        .disposed(by: disposeBag)
+            .bind(to: loginContentViewObject.loginBtn.rx.isEnabled)
+            .disposed(by: disposeBag)
         loginContentViewObject.loginBtn.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
     }
-  
+    
     @objc func loginButtonTapped() {
-        let alert = UIAlertController(title: "Login Successful", message: "", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) {
-            (UIAlertAction) in
-            self.navigationController?.pushViewController(self.onboardVC, animated: true)
-        }
-        alert.addAction(okAction)
-        self.present(alert, animated: true, completion: nil)
+        self.navigationController?.pushViewController(self.onboardVC, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         super.viewWillAppear(animated)
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
         super.viewWillDisappear(animated)
@@ -91,6 +85,6 @@ class LoginViewController: UIViewController, UIGestureRecognizerDelegate, UIText
         loginContentViewObject.loginBtn.rightAnchor.constraint(equalTo:loginContentView.rightAnchor, constant: -20).isActive = true
         loginContentViewObject.loginBtn.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
-
+    
 }
 

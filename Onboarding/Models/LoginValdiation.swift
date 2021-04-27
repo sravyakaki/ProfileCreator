@@ -23,7 +23,6 @@ struct LoginViewModel {
     }
 }
 
-
 extension String {
     
     func isValidEmail() -> Bool {
@@ -37,3 +36,4 @@ extension String {
     }
 
 }
+

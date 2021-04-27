@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B235FB912637556F0019211F /* LoginValdiation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B235FB902637556F0019211F /* LoginValdiation.swift */; };
 		B235FB99263761140019211F /* OnboardingFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B235FB98263761140019211F /* OnboardingFormViewController.swift */; };
+		B235FB9E26376E0F0019211F /* OnboardFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B235FB9D26376E0F0019211F /* OnboardFormView.swift */; };
+		B235FBA3263785CA0019211F /* OnboardingFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B235FBA2263785CA0019211F /* OnboardingFormViewModel.swift */; };
 		B271AACC2633253100E1A4EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B271AACB2633253100E1A4EF /* AppDelegate.swift */; };
 		B271AACE2633253100E1A4EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B271AACD2633253100E1A4EF /* SceneDelegate.swift */; };
 		B271AAD02633253100E1A4EF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B271AACF2633253100E1A4EF /* LoginViewController.swift */; };
@@ -41,6 +43,8 @@
 		7D52E8D1205FCC538D293AB7 /* Pods-Onboarding.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Onboarding.release.xcconfig"; path = "Target Support Files/Pods-Onboarding/Pods-Onboarding.release.xcconfig"; sourceTree = "<group>"; };
 		B235FB902637556F0019211F /* LoginValdiation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginValdiation.swift; sourceTree = "<group>"; };
 		B235FB98263761140019211F /* OnboardingFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFormViewController.swift; sourceTree = "<group>"; };
+		B235FB9D26376E0F0019211F /* OnboardFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardFormView.swift; sourceTree = "<group>"; };
+		B235FBA2263785CA0019211F /* OnboardingFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFormViewModel.swift; sourceTree = "<group>"; };
 		B271AAC82633253100E1A4EF /* Onboarding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Onboarding.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B271AACB2633253100E1A4EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B271AACD2633253100E1A4EF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				B235FB902637556F0019211F /* LoginValdiation.swift */,
+				B235FBA2263785CA0019211F /* OnboardingFormViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -169,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				B271AB092635262500E1A4EF /* LoginContentView.swift */,
+				B235FB9D26376E0F0019211F /* OnboardFormView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -358,6 +364,8 @@
 				B271AB0A2635262500E1A4EF /* LoginContentView.swift in Sources */,
 				B271AAD02633253100E1A4EF /* LoginViewController.swift in Sources */,
 				B235FB912637556F0019211F /* LoginValdiation.swift in Sources */,
+				B235FBA3263785CA0019211F /* OnboardingFormViewModel.swift in Sources */,
+				B235FB9E26376E0F0019211F /* OnboardFormView.swift in Sources */,
 				B271AACC2633253100E1A4EF /* AppDelegate.swift in Sources */,
 				B271AACE2633253100E1A4EF /* SceneDelegate.swift in Sources */,
 				B235FB99263761140019211F /* OnboardingFormViewController.swift in Sources */,
