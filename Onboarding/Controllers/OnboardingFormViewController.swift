@@ -15,12 +15,12 @@ class OnboardingFormViewController: UIViewController, UIGestureRecognizerDelegat
     let viewModel = OnboardingFormViewModel()
     let disposeBag = DisposeBag()
     var userEnteredEmailID: String = ""
-
+    
     private let onboardingFormView: UIView = {
-      let view = UIView()
-      view.backgroundColor = #colorLiteral(red: 0.7768785357, green: 0.7994685173, blue: 1, alpha: 1)
-      view.translatesAutoresizingMaskIntoConstraints = false
-      return view
+        let view = UIView()
+        view.backgroundColor = #colorLiteral(red: 0.7768785357, green: 0.7994685173, blue: 1, alpha: 1)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     override func viewDidLoad() {
@@ -32,7 +32,7 @@ class OnboardingFormViewController: UIViewController, UIGestureRecognizerDelegat
         view.backgroundColor = #colorLiteral(red: 0.7768785357, green: 0.7994685173, blue: 1, alpha: 1)
         addSubViews()
         setupAutoLayout()
-        onboardFormViewObject.emailLabel.text = "Email ID: \(userEnteredEmailID)" 
+        onboardFormViewObject.emailLabel.text = "Email ID: \(userEnteredEmailID)"
         formValidationsWithRXSwift()
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
     }
@@ -43,29 +43,32 @@ class OnboardingFormViewController: UIViewController, UIGestureRecognizerDelegat
     
     func formValidationsWithRXSwift() {
         onboardFormViewObject.fNameTextField.rx.text.orEmpty.bind(to: viewModel.fName)
-        .disposed(by: disposeBag)
+            .disposed(by: disposeBag)
         onboardFormViewObject.lNameTextField.rx.text.orEmpty.bind(to: viewModel.lName)
-        .disposed(by: disposeBag)
-        onboardFormViewObject.ageTextField.rx.text.orEmpty.bind(to: viewModel.age)
-        .disposed(by: disposeBag)
+            .disposed(by: disposeBag)
         onboardFormViewObject.genderTextField.rx.text.orEmpty.bind(to: viewModel.gender)
-        .disposed(by: disposeBag)
+            .disposed(by: disposeBag)
         viewModel.isValid.map { $0 }
-        .bind(to: onboardFormViewObject.saveBtn.rx.isEnabled)
-        .disposed(by: disposeBag)
+            .bind(to: onboardFormViewObject.saveBtn.rx.isEnabled)
+            .disposed(by: disposeBag)
         onboardFormViewObject.saveBtn.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
     }
     
     @objc func saveButtonTapped() {
-        let alert = UIAlertController(title: "Information saved", message: "", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) {
-            (UIAlertAction) in
-          //  self.navigationController?.pushViewController(self.onboardVC, animated: true)
+        if onboardFormViewObject.ageTextField.text != "" {
+         let profileVC = ProfileViewController()
+         self.navigationController?.pushViewController(profileVC, animated: true)
+            
+        } else {
+            let alert = UIAlertController(title: "Please enter age", message: "", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default) {
+                (UIAlertAction) in
+            }
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
         }
-        alert.addAction(okAction)
-        self.present(alert, animated: true, completion: nil)
+        
     }
-
     
     func addSubViews() {
         onboardingFormView.addSubview(onboardFormViewObject.fNameTextField)
@@ -89,7 +92,7 @@ class OnboardingFormViewController: UIViewController, UIGestureRecognizerDelegat
         onboardFormViewObject.fNameTextField.leftAnchor.constraint(equalTo:onboardingFormView.leftAnchor, constant: 20).isActive = true
         onboardFormViewObject.fNameTextField.rightAnchor.constraint(equalTo:onboardingFormView.rightAnchor, constant: -20).isActive = true
         onboardFormViewObject.fNameTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
-
+        
         onboardFormViewObject.lNameTextField.topAnchor.constraint(equalTo:onboardFormViewObject.fNameTextField.bottomAnchor, constant: 10).isActive = true
         onboardFormViewObject.lNameTextField.leftAnchor.constraint(equalTo:onboardingFormView.leftAnchor, constant: 20).isActive = true
         onboardFormViewObject.lNameTextField.rightAnchor.constraint(equalTo:onboardingFormView.rightAnchor, constant: -20).isActive = true

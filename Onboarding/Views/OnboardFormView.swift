@@ -31,6 +31,7 @@ internal final class OnboardFormView: UIView {
         let txtField = UITextField()
         txtField.backgroundColor = .white
         txtField.placeholder = "Age *"
+        txtField.keyboardType = .numberPad
         txtField.borderStyle = .roundedRect
         txtField.translatesAutoresizingMaskIntoConstraints = false
         return txtField

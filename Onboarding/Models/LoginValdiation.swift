@@ -34,6 +34,18 @@ extension String {
     func isValidPassword() -> Bool {
         return self.count >= 4
     }
+    
+    func isValidStr() -> Bool {
+         let nameRegex = "[a-zA-Z][a-zA-Z-\' .,]"
+         let nameTest = NSPredicate(format:"SELF MATCHES %@", nameRegex)
+         return nameTest.evaluate(with: self)
+     }
+
+     func isValidAge() -> Bool {
+         let ageRegex = "[0-9]"
+         let ageTest = NSPredicate(format:"SELF MATCHES %@", ageRegex)
+         return ageTest.evaluate(with: self)
+     }
 
 }
 

@@ -19,6 +19,8 @@
 		B271AAE32633253300E1A4EF /* OnboardingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B271AAE22633253300E1A4EF /* OnboardingTests.swift */; };
 		B271AAEE2633253400E1A4EF /* OnboardingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B271AAED2633253400E1A4EF /* OnboardingUITests.swift */; };
 		B271AB0A2635262500E1A4EF /* LoginContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B271AB092635262500E1A4EF /* LoginContentView.swift */; };
+		B2B7AE9B2638C0A4006BB04D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B7AE9A2638C0A4006BB04D /* ProfileView.swift */; };
+		B2B7AE9D2638C1DB006BB04D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B7AE9C2638C1DB006BB04D /* ProfileViewController.swift */; };
 		EC648425F387BB2409ABBC39 /* Pods_Onboarding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E60584F0DA22FF81D445CD61 /* Pods_Onboarding.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +61,8 @@
 		B271AAED2633253400E1A4EF /* OnboardingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingUITests.swift; sourceTree = "<group>"; };
 		B271AAEF2633253400E1A4EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B271AB092635262500E1A4EF /* LoginContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContentView.swift; sourceTree = "<group>"; };
+		B2B7AE9A2638C0A4006BB04D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		B2B7AE9C2638C1DB006BB04D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E60584F0DA22FF81D445CD61 /* Pods_Onboarding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Onboarding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F198DD4C7576A892851FE4B0 /* Pods-Onboarding.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Onboarding.debug.xcconfig"; path = "Target Support Files/Pods-Onboarding/Pods-Onboarding.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -175,6 +179,7 @@
 			children = (
 				B271AB092635262500E1A4EF /* LoginContentView.swift */,
 				B235FB9D26376E0F0019211F /* OnboardFormView.swift */,
+				B2B7AE9A2638C0A4006BB04D /* ProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -184,6 +189,7 @@
 			children = (
 				B271AACF2633253100E1A4EF /* LoginViewController.swift */,
 				B235FB98263761140019211F /* OnboardingFormViewController.swift */,
+				B2B7AE9C2638C1DB006BB04D /* ProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -362,6 +368,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B271AB0A2635262500E1A4EF /* LoginContentView.swift in Sources */,
+				B2B7AE9B2638C0A4006BB04D /* ProfileView.swift in Sources */,
+				B2B7AE9D2638C1DB006BB04D /* ProfileViewController.swift in Sources */,
 				B271AAD02633253100E1A4EF /* LoginViewController.swift in Sources */,
 				B235FB912637556F0019211F /* LoginValdiation.swift in Sources */,
 				B235FBA3263785CA0019211F /* OnboardingFormViewModel.swift in Sources */,
