@@ -56,8 +56,14 @@ class OnboardingFormViewController: UIViewController, UIGestureRecognizerDelegat
     
     @objc func saveButtonTapped() {
         if onboardFormViewObject.ageTextField.text != "" {
-         let profileVC = ProfileViewController()
-         self.navigationController?.pushViewController(profileVC, animated: true)
+            let profileVC = ProfileViewController()
+            profileVC.userFName = onboardFormViewObject.fNameTextField.text ?? ""
+            profileVC.userLName = onboardFormViewObject.lNameTextField.text ?? ""
+            profileVC.userAge = onboardFormViewObject.ageTextField.text ?? ""
+            profileVC.userGender = onboardFormViewObject.genderTextField.text ?? ""
+            profileVC.userCountry = onboardFormViewObject.countryTextField.text ?? ""
+            profileVC.userEmailID = userEnteredEmailID
+            self.navigationController?.pushViewController(profileVC, animated: true)
             
         } else {
             let alert = UIAlertController(title: "Please enter age", message: "", preferredStyle: .alert)

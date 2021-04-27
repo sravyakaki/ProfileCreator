@@ -56,6 +56,62 @@ class ProfileView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    
+    let firstNameTF: UITextField = {
+        let txtField = UITextField()
+        txtField.backgroundColor = .white
+        txtField.placeholder = "First Name"
+        txtField.borderStyle = .roundedRect
+        txtField.translatesAutoresizingMaskIntoConstraints = false
+        return txtField
+    }()
+    
+    let lastNameTF: UITextField = {
+        let txtField = UITextField()
+        txtField.backgroundColor = .white
+        txtField.placeholder = "Last Name"
+        txtField.borderStyle = .roundedRect
+        txtField.translatesAutoresizingMaskIntoConstraints = false
+        return txtField
+    }()
+    
+    let ageTF: UITextField = {
+        let txtField = UITextField()
+        txtField.backgroundColor = .white
+        txtField.placeholder = "Age"
+        txtField.keyboardType = .numberPad
+        txtField.borderStyle = .roundedRect
+        txtField.translatesAutoresizingMaskIntoConstraints = false
+        return txtField
+    }()
+    
+    let genderTF: UITextField = {
+        let txtField = UITextField()
+        txtField.backgroundColor = .white
+        txtField.placeholder = "Gender"
+        txtField.borderStyle = .roundedRect
+        txtField.translatesAutoresizingMaskIntoConstraints = false
+        return txtField
+    }()
+    
+    let countryTF: UITextField = {
+        let txtField = UITextField()
+        txtField.backgroundColor = .white
+        txtField.placeholder = "Country"
+        txtField.borderStyle = .roundedRect
+        txtField.translatesAutoresizingMaskIntoConstraints = false
+        return txtField
+    }()
+    
+    let emailTF: UITextField = {
+        let txtField = UITextField()
+        txtField.backgroundColor = .white
+        txtField.placeholder = "Email"
+        txtField.borderStyle = .roundedRect
+        txtField.translatesAutoresizingMaskIntoConstraints = false
+        return txtField
+    }()
 }
 
 
