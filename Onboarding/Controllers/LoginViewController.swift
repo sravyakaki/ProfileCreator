@@ -14,7 +14,6 @@ class LoginViewController: UIViewController, UIGestureRecognizerDelegate, UIText
     internal let loginContentViewObject = LoginContentView()
     let viewModel = LoginViewModel()
     let disposeBag = DisposeBag()
-    let onboardVC = OnboardingFormViewController()
     
     private let loginContentView: UIView = {
         let view = UIView()
@@ -47,7 +46,9 @@ class LoginViewController: UIViewController, UIGestureRecognizerDelegate, UIText
     }
     
     @objc func loginButtonTapped() {
-        self.navigationController?.pushViewController(self.onboardVC, animated: true)
+        let onboardVC = OnboardingFormViewController()
+        onboardVC.userEnteredEmailID = loginContentViewObject.nameTextField.text ?? ""
+        self.navigationController?.pushViewController(onboardVC, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {

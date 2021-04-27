@@ -14,6 +14,7 @@ class OnboardingFormViewController: UIViewController, UIGestureRecognizerDelegat
     internal let onboardFormViewObject = OnboardFormView()
     let viewModel = OnboardingFormViewModel()
     let disposeBag = DisposeBag()
+    var userEnteredEmailID: String = ""
 
     private let onboardingFormView: UIView = {
       let view = UIView()
@@ -31,6 +32,7 @@ class OnboardingFormViewController: UIViewController, UIGestureRecognizerDelegat
         view.backgroundColor = #colorLiteral(red: 0.7768785357, green: 0.7994685173, blue: 1, alpha: 1)
         addSubViews()
         setupAutoLayout()
+        onboardFormViewObject.emailLabel.text = "Email ID: \(userEnteredEmailID)" 
         formValidationsWithRXSwift()
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
     }
