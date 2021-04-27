@@ -83,7 +83,7 @@ class OnboardingFormViewController: UIViewController, UIGestureRecognizerDelegat
         onboardingFormView.heightAnchor.constraint(equalToConstant: view.frame.height - 80).isActive = true
         onboardingFormView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
-        onboardFormViewObject.fNameTextField.topAnchor.constraint(equalTo:onboardingFormView.topAnchor, constant: 40).isActive = true
+        onboardFormViewObject.fNameTextField.topAnchor.constraint(equalTo:onboardingFormView.topAnchor, constant: 60).isActive = true
         onboardFormViewObject.fNameTextField.leftAnchor.constraint(equalTo:onboardingFormView.leftAnchor, constant: 20).isActive = true
         onboardFormViewObject.fNameTextField.rightAnchor.constraint(equalTo:onboardingFormView.rightAnchor, constant: -20).isActive = true
         onboardFormViewObject.fNameTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
