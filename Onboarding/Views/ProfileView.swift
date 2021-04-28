@@ -103,15 +103,6 @@ class ProfileView: UIView {
         txtField.translatesAutoresizingMaskIntoConstraints = false
         return txtField
     }()
-    
-    let emailTF: UITextField = {
-        let txtField = UITextField()
-        txtField.backgroundColor = .white
-        txtField.placeholder = "Email"
-        txtField.borderStyle = .roundedRect
-        txtField.translatesAutoresizingMaskIntoConstraints = false
-        return txtField
-    }()
 }
 
 

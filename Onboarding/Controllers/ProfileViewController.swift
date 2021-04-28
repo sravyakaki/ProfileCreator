@@ -35,6 +35,7 @@ class ProfileViewController: UIViewController {
         setupAutoLayout()
         textFieldsHidden()
         profileData()
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
     }
     
     func profileData() {
@@ -42,7 +43,6 @@ class ProfileViewController: UIViewController {
         profileInfoObject.lastNameTF.text = userLName
         profileInfoObject.ageTF.text = userAge
         profileInfoObject.genderTF.text = userGender
-        profileInfoObject.emailTF.text = userEmailID
         profileInfoObject.countryTF.text = userCountry
         profileInfoObject.firstNameLabel.text = userFName
         profileInfoObject.lastNameLabel.text = userLName
@@ -51,6 +51,14 @@ class ProfileViewController: UIViewController {
         profileInfoObject.emailLabel.text = userEmailID
         profileInfoObject.countryLabel.text = userCountry
         
+    }
+    
+    func updateProfileData() {
+        profileInfoObject.firstNameLabel.text  = profileInfoObject.firstNameTF.text
+        profileInfoObject.lastNameLabel.text  = profileInfoObject.lastNameTF.text
+        profileInfoObject.ageLabel.text  = profileInfoObject.ageTF.text
+        profileInfoObject.genderLabel.text  = profileInfoObject.genderTF.text
+        profileInfoObject.countryLabel.text  = profileInfoObject.countryTF.text
     }
     
     func addSubViews() {
@@ -65,13 +73,32 @@ class ProfileViewController: UIViewController {
         profileInfoView.addSubview(profileInfoObject.genderTF)
         profileInfoView.addSubview(profileInfoObject.ageTF)
         profileInfoView.addSubview(profileInfoObject.countryTF)
-        profileInfoView.addSubview(profileInfoObject.emailTF)
         view.addSubview(profileInfoView)
     }
     
     @objc func editProfile() {
+        let saveBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(saveEdits))
+        self.navigationItem.rightBarButtonItem  = saveBarButtonItem
+        let cancelBarButtonItem = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(cancelEdits))
+        self.navigationItem.leftBarButtonItem  = cancelBarButtonItem
         unhideTextFields()
     }
+    
+    @objc func cancelEdits() {
+        let editBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editProfile))
+        self.navigationItem.rightBarButtonItem  = editBarButtonItem
+        self.navigationItem.leftBarButtonItem = nil
+        textFieldsHidden()
+    }
+    
+    @objc func saveEdits() {
+        let editBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editProfile))
+        self.navigationItem.rightBarButtonItem  = editBarButtonItem
+        self.navigationItem.leftBarButtonItem = nil
+        textFieldsHidden()
+        updateProfileData()
+    }
+    
     func setupAutoLayout() {
         profileInfoView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         profileInfoView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
@@ -132,11 +159,7 @@ class ProfileViewController: UIViewController {
         profileInfoObject.countryTF.leftAnchor.constraint(equalTo:profileInfoView.leftAnchor, constant: 20).isActive = true
         profileInfoObject.countryTF.rightAnchor.constraint(equalTo:profileInfoView.rightAnchor, constant: -20).isActive = true
         profileInfoObject.countryTF.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
-        profileInfoObject.emailTF.topAnchor.constraint(equalTo:profileInfoObject.countryTF.bottomAnchor, constant: 10).isActive = true
-        profileInfoObject.emailTF.leftAnchor.constraint(equalTo:profileInfoView.leftAnchor, constant: 20).isActive = true
-        profileInfoObject.emailTF.rightAnchor.constraint(equalTo:profileInfoView.rightAnchor, constant: -20).isActive = true
-        profileInfoObject.emailTF.heightAnchor.constraint(equalToConstant: 50).isActive = true
+
         
     }
     
@@ -145,7 +168,6 @@ class ProfileViewController: UIViewController {
         profileInfoObject.lastNameTF.isHidden = true
         profileInfoObject.ageTF.isHidden = true
         profileInfoObject.genderTF.isHidden = true
-        profileInfoObject.emailTF.isHidden = true
         profileInfoObject.countryTF.isHidden = true
         profileInfoObject.firstNameLabel.isHidden = false
         profileInfoObject.lastNameLabel.isHidden = false
@@ -160,7 +182,6 @@ class ProfileViewController: UIViewController {
         profileInfoObject.lastNameTF.isHidden = false
         profileInfoObject.ageTF.isHidden = false
         profileInfoObject.genderTF.isHidden = false
-        profileInfoObject.emailTF.isHidden = false
         profileInfoObject.countryTF.isHidden = false
         profileInfoObject.firstNameLabel.isHidden = true
         profileInfoObject.lastNameLabel.isHidden = true
